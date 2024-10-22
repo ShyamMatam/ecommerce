@@ -17,7 +17,7 @@ export default function RegisterForm() {
 
     try {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+      const timeoutId = setTimeout(() => controller.abort(), 60000); // Increase to 60 seconds
 
       const response = await fetch('/api/auth/register', {
         method: 'POST',
@@ -39,7 +39,7 @@ export default function RegisterForm() {
     } catch (error) {
       console.error('Registration error:', error);
       setError(error.name === 'AbortError' 
-        ? 'Request timed out. Please try again.' 
+        ? 'Request timed out. The server might be busy. Please try again later.' 
         : error.message || 'An error occurred during registration');
     } finally {
       setIsLoading(false);

@@ -5,4 +5,11 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["@aws-sdk"]
+  included_files = ["src/schema.prisma"]
+  timeout = "30 seconds"
+
+
 
