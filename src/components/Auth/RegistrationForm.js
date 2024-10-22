@@ -17,7 +17,7 @@ export default function RegisterForm() {
 
     try {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+      const timeoutId = setTimeout(() => controller.abort(), 300000); // 300 second timeout
 
       const response = await fetch('/api/auth/register', {
         method: 'POST',
