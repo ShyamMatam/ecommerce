@@ -1,6 +1,11 @@
 'use client';
 import { useCart } from '../../context/CartContext';
 
+// const formatPrice = (price) => {
+//   const numericPrice = parseFloat(price.replace('$', ''));
+//   return `₹${(numericPrice.toFixed(0))*84}`;
+// };
+
 export default function Cart() {
   const { cart, removeFromCart, updateQuantity } = useCart();
 
@@ -23,7 +28,7 @@ export default function Cart() {
         </div>
       ))}
       <div className="mt-4">
-        <strong>Total: ${total.toFixed(2)}</strong>
+        <strong>Total: {formatPrice(total.toFixed(2)*84)}</strong>
       </div>
       <button className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
         Proceed to Checkout
@@ -31,3 +36,5 @@ export default function Cart() {
     </div>
   );
 }
+
+

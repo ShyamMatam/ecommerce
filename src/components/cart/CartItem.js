@@ -3,6 +3,10 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useCart } from '../../context/CartContext';
 
+const formatPrice = (price) => {
+  const numericPrice = parseFloat(price.replace('$', ''));
+  return `₹${(numericPrice.toFixed(0))*84}`;
+};
 export default function CartItem({ item }) {
   const { removeFromCart, updateQuantity } = useCart();
 
@@ -25,7 +29,9 @@ export default function CartItem({ item }) {
       </div>
       <div className="flex-grow mr-4">
         <h2 className="text-lg font-semibold line-clamp-2 text-gray-600" title={item.product_title}>{item.product_title}</h2>
-        <p className="text-blue-600 font-bold mt-1 ">{item.product_price}</p>
+        {/* price to indian rupees */}
+        <p className="text-violet-600 font-bold mt-1 ">{formatPrice(item.product_price)}</p>
+
       </div>
       <div className="flex items-center">
         <button 

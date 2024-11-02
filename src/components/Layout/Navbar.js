@@ -63,10 +63,10 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-blue-600 text-white p-4 fixed top-0 w-full z-10 shadow-md">
+    <nav className="bg-violet-600 text-white p-4 fixed top-0 w-full z-10 shadow-2xl">
       <div className="container mx-auto flex flex-wrap justify-between items-center">
         <div className="flex items-center justify-between w-full md:w-auto">
-          <Link href="/" className="hover:text-blue-200 transition-colors">
+          <Link href="/" className="hover:text-blue-200 hover:underline transition-colors">
             Home
           </Link>
           <button
@@ -83,15 +83,15 @@ export default function Navbar() {
             <MiniCart />
             {user ? (
               <>
-                <span className="my-2 md:my-0">Welcome, {user.email}</span>
-                <button onClick={handleLogout} className="my-2 md:my-0 hover:text-blue-200 transition-colors">Logout</button>
+                <span className="my-2 md:my-0">welcome {user.email}</span>
+                <button onClick={handleLogout} className="my-2 md:my-0 hover:text-blue-200 hover:underline transition-colors">Logout</button>
               </>
             ) : (
               <>
-                <Link href="/login" className="my-2 md:my-0 hover:text-blue-200 transition-colors">
+                <Link href="/login" className="my-2 md:my-0 hover:text-blue-200 hover:underline transition-colors">
                   Login
                 </Link>
-                <Link href="/register" className="my-2 md:my-0 hover:text-blue-200 transition-colors">
+                <Link href="/register" className="my-2 md:my-0 hover:text-blue-200 hover:underline transition-colors">
                   Register
                 </Link>
               </>
